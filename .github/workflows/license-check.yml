@@ -1,6 +1,11 @@
 name: License Compliance Check
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  # ここが追加ポイント！「毎日 日本時間の朝9時 (UTC 0:00) に実行せよ」
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   license-scan:
@@ -14,7 +19,7 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install -r requirements.txt
 
       - name: Run License Check
         run: python check_licenses.py
