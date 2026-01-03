@@ -28,3 +28,9 @@
 ## 👨‍💻 Author
 
 Developed by **Sushisverige** as a portfolio project for DevSecOps & Governance.
+
+## ⚠️ Limitations (Known Issue)
+
+Current version scans only direct dependencies listed in `requirements.txt`.
+Transitive dependencies (dependencies of dependencies) are **NOT** checked.
+For production use, consider scanning the output of `pip freeze` to ensure full compliance coverage.
